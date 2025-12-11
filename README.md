@@ -31,10 +31,19 @@ This project repository includes the following items.
 
 # API Endpoints 
 
+
 # Stopping the Server
 After the user has completed their analysis and experiment with our models, they should take down the container using the command `docker compose down`.
 
 # Example Executions
+
+curl -X POST http://localhost:5000/generate \
+    -H "Content-Type: application/json" \
+    -d '{"prompt": "a squirrel in a spacesuit"}' \
+    --output space_squirrel.png
+
+curl -X POST -F "image=@img_2.jpg" localhost:5000/inference/mixed
+
 
 # References
 1. The CIFAR-10 dataset can be accessed at this link: https://www.cs.toronto.edu/~kriz/cifar.html
