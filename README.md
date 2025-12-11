@@ -36,6 +36,8 @@ After the user has completed their analysis and experiment with our models, they
 
 # Example Executions
 
-   
+# References
+1. The CIFAR-10 dataset can be accessed at this link: https://www.cs.toronto.edu/~kriz/cifar.html
+2. The diffusion model used for generating the synthetic images can be found here: https://huggingface.co/stabilityai/sd-turbo
 
 
