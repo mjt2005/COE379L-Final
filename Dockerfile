@@ -1,24 +1,20 @@
 FROM python:3.11
 
-RUN pip install --no-cache-dir \
-    tensorflow==2.15 \
-    Flask==3.0 \
-    Pillow \
-    numpy \
-    diffusers \
-    transformers \
-    accelerate \
-    safetensors \
-    huggingface_hub \
-    torch --index-url https://download.pytorch.org/whl/cpu \
-    torchvision --index-url https://download.pytorch.org/whl/cpu
+RUN pip install tensorflow==2.19.0
+RUN pip install Flask==3.0
+#RUN pip install numpy==1.26
+RUN pip install scikit-image==0.21
+RUN pip install Pillow==12.0.0
+RUN pip install diffusers==0.36.0
+RUN pip install transformers==4.51.3
+RUN pip install accelerate==1.6.0
 
-# Copy model and Flask app
+RUN mkdir /images
 RUN mkdir /app
 WORKDIR /app
-COPY lenet5_model_realCIFAR.keras /model/lenet5_model_realCIFAR.keras
-COPY model10.keras /model/model10.keras
-COPY Deployment.py /app/api.py
 
-# Start Flask server
+
+COPY models/ /app/models
+COPY api.py /app/api.py
+
 CMD ["python", "api.py"]
