@@ -25,7 +25,7 @@ This project repository includes the following items.
 `CIFAR-10_Train`: Notebook containing model training on the real CIFAR data and experiments related to the model. 
 
 # Inference Server Setup
-1. To begin the inference server for inferencing, the user must first pull the following Docker image using the command `docker pull `.
+1. To begin the inference server for inferencing, the user must first pull the following Docker image `_` using the command `docker pull _ `.
 2. After pulling the premade image, the user must start the container for the server in the background using the command `docker compose up -d --build`.
 3. Now the server is ready to take in user query routes.
 
