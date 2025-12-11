@@ -12,6 +12,8 @@ This project repository includes the following items.
 2. Model inference server and deployment materials using Docker
 3. Report summarizing methodology and results
 4. Initial Project Proposal
+5. AI usage document
+6. Best performing models from the overall experiments 
 
 # Jupyter Notebooks
 `ExtractImages`: Notebook used to extract the real CIFAR-10 animal images.
@@ -22,5 +24,5 @@ This project repository includes the following items.
 
 `CIFAR-10_Train`: Notebook containing model training on the real CIFAR data and experiments related to the model. 
 
-
+# Inference Server Setup
 
