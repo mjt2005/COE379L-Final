@@ -26,8 +26,9 @@ This project repository includes the following items.
 
 # Inference Server Setup
 1. To begin the inference server for inferencing, the user must first pull the following Docker image `mjt2005/model_chaining:1.0` using the command `docker pull mjt2005/model_chaining:1.0`. You can also directly run the container with the command `docker run -it --rm -p 5000:5000 mjt2005/model_chaining:1.0` if you wish.
-2. After pulling the premade image, the user must start the container for the server in the background using the command `docker compose up -d --build`.
-3. Now the server is ready to take in user query routes.
+2. In case of potential issues user should also build the image using `docker compose build`.
+3. After pulling the premade image, the user must start the container for the server in the background using the command `docker compose up -d --build`.
+4. Now the server is ready to take in user query routes.
 
 # API Endpoints 
 `curl -X POST http://localhost:5000/generate -H "Content-Type: application/json" -d '{"prompt": "blank"}' --output blank.jpg`: `POST` request that generates an image based on the prompt and saves to files as a jpg.
