@@ -1,0 +1,11 @@
+--- 
+    services:
+        flask-app:
+            build:
+                context: ./
+                dockerfile: ./Dockerfile
+            image: mjt2005/model_chaining:1.0
+            container_name: img_gen_and_classify_server
+            ports:
+                - "5000:5000"
+...
