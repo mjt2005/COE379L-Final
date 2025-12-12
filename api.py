@@ -26,6 +26,7 @@ def create_image(prompt):
     im = pipe(prompt=prompt, num_inference_steps=1, num_images_per_prompt=1, guidance_scale=0.0).images[0]
     return im
 
+# [4] Made by AI
 @app.route('/generate', methods=['POST'])
 def generate_image():
     data = request.get_json()
