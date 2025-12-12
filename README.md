@@ -25,25 +25,29 @@ This project repository includes the following items.
 `CIFAR-10_Train`: Notebook containing model training on the real CIFAR data and experiments related to the model. 
 
 # Inference Server Setup
-1. To begin the inference server for inferencing, the user must first pull the following Docker image `_` using the command `docker pull _ `.
+1. To begin the inference server for inferencing, the user must first pull the following Docker image `mjt2005/model_chaining:1.0` using the command `docker pull mjt2005/model_chaining:1.0`.
 2. After pulling the premade image, the user must start the container for the server in the background using the command `docker compose up -d --build`.
 3. Now the server is ready to take in user query routes.
 
 # API Endpoints 
+`curl -X POST http://localhost:5000/generate \ -H "Content-Type: application/json" \-d '{"prompt": "blank"}' \--output blank.jpg`: `POST` request that generates an image based on the prompt and saves to files as a jpg.
 
+`curl localhost:5000/models/<model_type>`: `GET` request that returns the metadata of a selected model type: `mixed` or `real`.
+
+`curl -X POST -F "image= blank.jpg" localhost:5000/inference/<model>`: `POST` request that returns the classification of the inputted image using the specified model in `<model>`.
 
 # Stopping the Server
 After the user has completed their analysis and experiment with our models, they should take down the container using the command `docker compose down`.
 
 # Example Executions
-
-curl -X POST http://localhost:5000/generate \
+Generating the Image:
+`curl -X POST http://localhost:5000/generate \
     -H "Content-Type: application/json" \
     -d '{"prompt": "a squirrel in a spacesuit"}' \
-    --output space_squirrel.png
+    --output space_squirrel.jpg`
 
-curl -X POST -F "image=@img_2.jpg" localhost:5000/inference/mixed
-
+Obtaining inference on the image:
+`curl -X POST -F "image=@img_2.jpg" localhost:5000/inference/mixed`
 
 # References
 1. The CIFAR-10 dataset can be accessed at this link: https://www.cs.toronto.edu/~kriz/cifar.html
